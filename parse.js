@@ -531,7 +531,7 @@ function parseSegment(lines, uri, start, end, mediaSequenceNumber, discontinuity
           attrs[key] = attributes[key];
         }
       }
-      segment.dateRange = new DateRange({
+      segment.dateRanges.push(new DateRange({
         id: attributes['ID'],
         classId: attributes['CLASS'],
         start: attributes['START-DATE'],
@@ -540,7 +540,7 @@ function parseSegment(lines, uri, start, end, mediaSequenceNumber, discontinuity
         plannedDuration: attributes['PLANNED-DURATION'],
         endOnNext: attributes['END-ON-NEXT'],
         attributes: attrs
-      });
+      }));
     } else if (name === 'EXT-X-CUE-OUT') {
       segment.markers.push(new SpliceInfo({
         type: 'OUT',

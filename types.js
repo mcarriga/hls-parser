@@ -259,7 +259,7 @@ class Segment extends Data {
     key,
     map,
     programDateTime,
-    dateRange,
+    dateRanges = [],
     markers = [],
     parts = []
   }) {
@@ -277,7 +277,7 @@ class Segment extends Data {
     this.key = key;
     this.map = map;
     this.programDateTime = programDateTime;
-    this.dateRange = dateRange;
+    this.dateRanges = dateRanges;
     this.markers = markers;
     this.parts = parts;
   }

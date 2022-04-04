@@ -312,8 +312,11 @@ function buildSegment(lines, segment, lastKey, lastMap, version = 1) {
   if (segment.programDateTime) {
     lines.push(`#EXT-X-PROGRAM-DATE-TIME:${utils.formatDate(segment.programDateTime)}`);
   }
-  if (segment.dateRange) {
-    lines.push(buildDateRange(segment.dateRange));
+  if (segment.dateRanges > 0) {
+    for (var dateRange of segment.dateRanges) {
+      lines.push(buildDateRange(segment.dateRange));
+    }
+    
   }
   if (segment.markers.length > 0) {
     markerType = buildMarkers(lines, segment.markers);
